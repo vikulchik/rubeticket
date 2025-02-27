@@ -1,0 +1,51 @@
+.registration {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  background: url("/assets/images/concert.jpg") no-repeat center center #4a4a4a;
+  background-size: cover;
+
+  &__section {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    background: white;
+    border-radius: 7px;
+    padding: 20px;
+  }
+}
+
+.rube-logo {
+  display: block;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.registration-form {
+  padding: 10px;
+
+  &__header {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+    color: #ec174d;
+  }
+}
+
+.sign-in {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 18px;
+  color: #ec174d;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .3s ease;
+
+  &:hover {
+    color: #fd255c;
+  }
+}

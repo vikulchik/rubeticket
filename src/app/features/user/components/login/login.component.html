@@ -1,0 +1,33 @@
+<div class="login">
+  <section class="login__section">
+    <a href="#" class="rube-logo">
+      <img src="assets/images/rubeticket.svg" alt="Rubeticket" width="264" height="83">
+    </a>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+      <h1 class="login-form__header">Sign in</h1>
+      <app-field
+        placeholder="Email"
+        [errorMessages]="{
+          required: 'Email is required',
+          email: 'Please enter a valid email address'
+        }"
+        type="email"
+        [control]="loginForm.get('email')"
+        formControlName="email">
+      </app-field>
+
+      <app-field
+        placeholder="Password"
+        [errorMessages]="{
+          required: 'Password is required',
+          minlength: 'Password must be at least 6 characters long'
+        }"
+        type="password"
+        [control]="loginForm.get('password')"
+        formControlName="password">
+      </app-field>
+      <app-button text="Sign in" type="submit"></app-button>
+      <a href="auth/register" class="sign-up">Sign up</a>
+    </form>
+  </section>
+</div>

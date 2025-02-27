@@ -1,0 +1,19 @@
+<div class="form-group">
+  <label>{{ label }}</label>
+  <input
+    [type]="type"
+    class="form-control"
+    [value]="value"
+    [disabled]="isDisabled"
+    [attr.placeholder]="placeholder"
+    [(ngModel)]="value"
+    (input)="onInput($event)"
+    (blur)="onBlur($event)"
+    (keyup.enter)="onEnter($event)"
+  />
+  <div *ngIf="control && control.invalid && ((control.touched || control.dirty) || touched)" class="message-error">
+    <div *ngFor="let error of getControlErrors()">
+      {{ errorMessages[error] }}
+    </div>
+  </div>
+</div>

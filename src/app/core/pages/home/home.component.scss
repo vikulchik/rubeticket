@@ -1,0 +1,32 @@
+.main {
+  min-height: calc(100vh - 80px);
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+  &__title {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+  }
+}
+
+app-button {
+  width: 300px;
+  margin: 30px auto;
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 20px;
+  }
+
+  app-button {
+    width: 200px;
+    margin: 20px auto;
+  }
+}

@@ -1,0 +1,102 @@
+$primary-color: #ec164d;
+$border-color: #ccc;
+$breakpoint-mobile: 768px;
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.profile {
+  padding: 20px;
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.user-photo {
+  width: 30%;
+
+  img,
+  .upload-avatar {
+    width: 80%;
+  }
+}
+
+.user-information {
+  width: 60%;
+
+  &__title {
+    margin: 0 0 10px 0;
+    font-size: 30px;
+    color: $primary-color;
+  }
+}
+
+.account-details {
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+.tickets {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  button {
+    padding: 10px 20px;
+    border: 1px solid $primary-color;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 15px;
+
+    &.active {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}
+
+.tab-content {
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+}

@@ -1,0 +1,42 @@
+<div class="editable-field">
+  <div *ngIf="!isEditing">
+    <span class="editable-field__title">{{ title }}</span>
+    <span class="editable-field__text" (click)="startEditing()">{{ value || 'Not specified' }}</span>
+  </div>
+  <div *ngIf="isEditing">
+    <span class="editable-field__title">{{ title }}</span>
+    <app-field
+      *ngIf="type === 'text'"
+      [placeholder]="title"
+      [(ngModel)]="value"
+      (blur)="stopEditing()"
+      (keyup.enter)="stopEditing()"
+      #textInput
+    ></app-field>
+    <app-field
+      *ngIf="type === 'email'"
+      [placeholder]="title"
+      [(ngModel)]="value"
+      (blur)="stopEditing()"
+      (keyup.enter)="stopEditing()"
+      #emailInput
+    ></app-field>
+    <app-select
+      *ngIf="type === 'select'"
+      [options]="options"
+      [(ngModel)]="value"
+      (blur)="stopEditing()"
+      (change)="stopEditing()"
+      #selectInput
+    ></app-select>
+    <app-field
+      [type]="type"
+      *ngIf="type === 'date'"
+      [placeholder]="title"
+      [(ngModel)]="value"
+      (blur)="stopEditing()"
+      (keyup.enter)="stopEditing()"
+      #dateInput
+    ></app-field>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="registration">
+  <section class="registration__section">
+    <a href="#" class="rube-logo">
+      <img src="assets/images/rubeticket.svg" alt="Rubeticket" width="264" height="83">
+    </a>
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="registration-form">
+      <h1 class="registration-form__header">Sign up</h1>
+      <app-field
+        placeholder="Email"
+        [errorMessages]="{
+          required: 'Email is required',
+          email: 'Please enter a valid email address'
+        }"
+        type="email"
+        [control]="registerForm.get('email')"
+        formControlName="email">
+      </app-field>
+
+      <app-field
+        placeholder="First name"
+        [errorMessages]="{
+          required: 'Firstname is required'
+        }"
+        [control]="registerForm.get('firstName')"
+        formControlName="firstName">
+      </app-field>
+
+      <app-field
+        placeholder="Last name"
+        [errorMessages]="{
+          required: 'Lastname is required'
+        }"
+        [control]="registerForm.get('lastName')"
+        formControlName="lastName">
+      </app-field>
+
+      <app-field
+        placeholder="Password"
+        [errorMessages]="{
+          required: 'Password is required',
+          minlength: 'Password must be at least 6 characters long'
+        }"
+        type="password"
+        [control]="registerForm.get('password')"
+        formControlName="password">
+      </app-field>
+      <app-select
+        id="gender"
+        [options]="genders"
+        formControlName="gender"
+        [control]="registerForm.get('gender')">
+      </app-select>
+      <app-field
+        placeholder="Date of birth"
+        [errorMessages]="{
+          required: 'Birthday is required'
+        }"
+        type="date"
+        [control]="registerForm.get('birthday')"
+        formControlName="birthday">
+      </app-field>
+      <app-button text="Sign up" type="submit"></app-button>
+      <a href="auth/login" class="sign-in">Sign in</a>
+    </form>
+  </section>
+</div>

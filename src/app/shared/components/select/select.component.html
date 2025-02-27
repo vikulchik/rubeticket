@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label [for]="id">{{label}}</label>
+  <select
+    [id]="id"
+    class="form-control"
+    [(ngModel)]="value"
+    (ngModelChange)="onChange($event)"
+    (blur)="onBlur($event)"
+    (keyup.enter)="onEnter($event)">
+      <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+  </select>
+</div>

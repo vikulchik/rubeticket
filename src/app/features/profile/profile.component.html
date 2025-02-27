@@ -1,0 +1,89 @@
+<div class="user-profile">
+  <app-header></app-header>
+  <div class="profile" *ngIf="!isLoading; else loading">
+    <div class="tabs">
+      <button
+        [class.active]="activeTab === 'userInfo'"
+        (click)="setActiveTab('userInfo')"
+      >
+        User Info
+      </button>
+      <button
+        [class.active]="activeTab === 'tickets'"
+        (click)="setActiveTab('tickets')"
+      >
+        Tickets
+      </button>
+    </div>
+    <div class="tab-content">
+      <section *ngIf="activeTab === 'userInfo'" class="account-details">
+        <section class="user-photo">
+          <img [src]="selectedImage || defaultPhoto" alt="Profile photo">
+          <div class="upload-avatar">
+            <app-button
+              text="Upload photo"
+              type="submit"
+              [disabled]="photoUploadInProgress"
+              (click)="onUploadPhotoClick()"
+            ></app-button>
+            <input
+              #fileInput
+              type="file"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+              style="display: none"
+            />
+            <p *ngIf="photoUploadInProgress">Uploading...</p>
+          </div>
+        </section>
+        <section class="user-information">
+          <h1 class="user-information__title">Profile details</h1>
+          <app-editable-field
+            title="Firstname"
+            [(value)]="profile.firstName"
+            type="text"
+            (valueChange)="updateProfile($event)"
+          ></app-editable-field>
+          <app-editable-field
+            title="Lastname"
+            [(value)]="profile.lastName"
+            type="text"
+            (valueChange)="updateProfile($event)"
+          ></app-editable-field>
+          <app-editable-field
+            title="Email"
+            [(value)]="profile.email"
+            type="email"
+            (valueChange)="updateProfile($event)"
+          ></app-editable-field>
+          <app-editable-field
+            title="Birthday"
+            [(value)]="profile.birthday"
+            type="date"
+            (valueChange)="updateProfile($event)"
+          ></app-editable-field>
+          <app-editable-field
+            title="Gender"
+            [(value)]="profile.gender"
+            type="select"
+            [options]="genders"
+            (valueChange)="updateProfile($event)"
+          ></app-editable-field>
+        </section>
+      </section>
+      <section *ngIf="activeTab === 'tickets'" class="tickets">
+        <h1>Your Tickets</h1>
+        <ul>
+          <li *ngFor="let ticket of tickets">
+            {{ ticket.event }} - {{ ticket.date }}
+          </li>
+        </ul>
+        <p *ngIf="tickets.length === 0">No tickets purchased yet.</p>
+      </section>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+  <app-footer></app-footer>
+</div>

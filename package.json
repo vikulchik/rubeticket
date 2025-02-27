@@ -1,5 +1,74 @@
 {
+  "name": "rubeticket",
+  "version": "0.0.0",
+  "type": "module",
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended"
+    ]
+  },
+  "scripts": {
+    "ng": "node_modules/.bin/ng",
+    "start": "node_modules/.bin/ng serve",
+    "build": "node_modules/.bin/ng build",
+    "watch": "node_modules/.bin/ng build --watch --configuration development",
+    "test": "node_modules/.bin/ng test",
+    "lint": "node_modules/.bin/eslint \"src/**/*.ts\"",
+    "lint:fix": "node_modules/.bin/eslint \"src/**/*.{ts,html}\" --fix",
+    "lint:ts": "node_modules/.bin/eslint \"src/**/*.ts\"",
+    "lint:html": "node_modules/.bin/eslint \"src/**/*.html\""
+  },
+  "private": true,
   "dependencies": {
-    "swiper": "^11.2.4"
+    "@angular/animations": "^17.3.12",
+    "@angular/cdk": "^17.3.10",
+    "@angular/common": "^17.3.0",
+    "@angular/compiler": "^17.3.0",
+    "@angular/core": "^17.3.0",
+    "@angular/forms": "^17.3.0",
+    "@angular/material": "^17.3.10",
+    "@angular/platform-browser": "^17.3.0",
+    "@angular/platform-browser-dynamic": "^17.3.0",
+    "@angular/router": "^17.3.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "jsonwebtoken": "^9.0.2",
+    "ngx-toastr": "^19.0.0",
+    "rxjs": "~7.8.0",
+    "swiper": "^11.2.4",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.8",
+    "@angular-eslint/builder": "^19.0.2",
+    "@angular-eslint/eslint-plugin": "^19.0.2",
+    "@angular-eslint/eslint-plugin-template": "^19.0.2",
+    "@angular/cli": "^17.3.8",
+    "@angular/compiler-cli": "^17.3.0",
+    "@eslint/js": "^9.19.0",
+    "@types/jasmine": "~5.1.0",
+    "@types/prettier": "^3.0.0",
+    "@types/swiper": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.4.2",
+    "typescript": "~5.4.2",
+    "typescript-eslint": "^8.23.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

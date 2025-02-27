@@ -1,0 +1,15 @@
+<div class="slider-wrapper">
+  <div class="slider-container" #sliderContainer>
+    <div class="slide" *ngFor="let slide of slides; let i = index">
+      <img [src]="slide.imgSrc" [alt]="'Slide ' + (i + 1)" />
+      <div class="slide__info">
+        <p class="slide__date">{{ slide.date | date: 'dd.MM.yyyy' }}</p>
+        <p class="slide__title">{{ slide.title }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Кнопки навигации -->
+  <button class="nav-button prev" (click)="prevSlide()">❮</button>
+  <button class="nav-button next" (click)="nextSlide()">❯</button>
+</div>
